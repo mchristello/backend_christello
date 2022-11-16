@@ -106,49 +106,49 @@ console.log(testCheck.getProducts());
 
 testCheck.getProductById(2)
 
-// console.log("Productos en la base de datos:", testCheck.getProducts());
-// console.log("--------------------------------------------------------");
-// testCheck.addProduct(
-//     "Test",
-//     "This is a test Product",
-//     200,
-//     "No pict",
-//     "AS1324987",
-//     2
-// );
-// testCheck.addProduct(
-//     'Pala Nox',
-//     'AT10 Luxury Genius Arena',
-//     95500,
-//     'no picture',
-//     'AT1095JFzz',
-//     4
-// );
-// console.log("--------------------------------------------------------");
-// console.log("Productos en la base de datos:", testCheck.getProducts());
-// console.log("--------------------------------------------------------");
-// // Se agrega un producto pero sin precio, lo cual debería dar error.
-// testCheck.addProduct(
-//     "Pala Bullpadel", 
-//     "Vertex03", 
-//     "", 
-//     "Sin imagen", 
-//     "BULLVER030023", 
-//     5
-// );
-// console.log("Productos en la base de datos:", testCheck.getProducts());
-// console.log("--------------------------------------------------------");
-// testCheck.addProduct(
-//     "Pala Babolat", 
-//     "Technical Viper", 
-//     120000, 
-//     "Sin imagen", 
-//     "TECHVIP0023", 
-//     8
-// );
-// console.log("--------------------------------------------------------");
-// console.log("Productos en la base de datos:", testCheck.getProducts());
-// console.log("--------------------------------------------------------");
-// testCheck.getProductById(45);
-// console.log("--------------------------------------------------------");
-// testCheck.getProductById(2)
+console.log("Productos en la base de datos:", testCheck.getProducts());
+console.log("--------------------------------------------------------");
+testCheck.addProduct(
+    "Test",
+    "This is a test Product",
+    200,
+    "No pict",
+    "AS1324987",
+    2
+);
+testCheck.addProduct(
+    'Pala Nox',
+    'AT10 Luxury Genius Arena',
+    95500,
+    'no picture',
+    'AT1095JFzz',
+    4
+);
+console.log("--------------------------------------------------------");
+console.log("Productos en la base de datos:", testCheck.getProducts());
+console.log("--------------------------------------------------------");
+// Se agrega un producto pero sin precio, lo cual debería dar error.
+testCheck.addProduct(
+    "Pala Bullpadel", 
+    "Vertex03", 
+    "", 
+    "Sin imagen", 
+    "BULLVER030023", 
+    5
+);
+console.log("Productos en la base de datos:", testCheck.getProducts());
+console.log("--------------------------------------------------------");
+testCheck.addProduct(
+    "Pala Babolat", 
+    "Technical Viper", 
+    120000, 
+    "Sin imagen", 
+    "TECHVIP0023", 
+    8
+);
+console.log("--------------------------------------------------------");
+console.log("Productos en la base de datos:", testCheck.getProducts());
+console.log("--------------------------------------------------------");
+testCheck.getProductById(45);
+console.log("--------------------------------------------------------");
+testCheck.getProductById(2)
