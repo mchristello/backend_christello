@@ -64,19 +64,6 @@ class ProductManager {
         productSearched ? console.log(productSearched) : console.error(`Product: ${id} NOT FOUND`);
     }
 
-    validateInputs = ({ title, description, price, thumbnail, code, stock }) => {
-        return (
-            title.trim().length > 0 &&
-            description.trim().length > 0 &&
-            thumbnail.trim().length > 0 &&
-            code.trim().length > 0 &&
-            price.toString().trim().length > 0 &&
-            stock.toString().trim().length > 0 &&
-            price > 0 &&
-            stock > 0
-        );
-    };
-
 }
 
 
