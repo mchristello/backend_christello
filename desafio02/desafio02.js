@@ -13,7 +13,7 @@ class ProductManager {
         const databaseJson = await fs.promises.readFile(this.path, 'utf-8');
         const databaseObj = JSON.parse(databaseJson);
         const index = databaseObj.length;
-        const id = index === undefined ? index + 1 : 1;
+        const id = index !== undefined ? index + 1 : 1;
         return id;
     }
 
@@ -52,6 +52,9 @@ class ProductManager {
             code: code,
             stock: stock
         }
+        const db = await fs.promises.readFile(this.path, 'utf-8');
+        const dbObj = JSON.parse(db);
+        dbObj.push(product);
         if (!this.inputsCheck({ ...product })) {
             console.error(`There's some input missing for ${product.title}, please check again.`);
         }
@@ -59,7 +62,7 @@ class ProductManager {
         if (codeCheck) {
             console.log(`The product ${product.title} it's already in the array.`);
         }
-        await fs.promises.writeFile(this.path, JSON.stringify([ product ]));
+        await fs.promises.writeFile(this.path, JSON.stringify(dbObj));
         console.log(`The product ${product.title} has been added to the database.`);
     }
 
@@ -81,7 +84,7 @@ class ProductManager {
             const databaseJson = await fs.promises.readFile(this.path, "utf-8");
             const databaseObj = JSON.parse(databaseJson);
             const productSearch = databaseObj.find((product) => product.id === productId);
-            return productSearch !== undefined ? productSearch : console.log(`The product ${product.title} is not in the database`);
+            return productSearch !== undefined ? productSearch : console.log(`The product you're looking for is not in the database`);
     };
 
     // Nueva function para actualizar la propiedades del produccto, sin modificar el ID
@@ -132,6 +135,15 @@ class ProductManager {
     //     3
     // );
 
+    // test.addProduct(
+    //     "Bullpadel Vertex03",
+    //     "La Pala de Juan Tello",
+    //     145000,
+    //     "No Pic",
+    //     "BULLVTX0323",
+    //     4
+    // )
+
     // Se vuelve a pedir que traiga el array de productos para comprobar que se haya agregado el paso anterior
 
     // test.getProducts()
@@ -143,9 +155,9 @@ class ProductManager {
     // Se busca el producto por ID
 
     // test.getProductById(1)
-    //  .then((product) => {
-    //     console.log(product);
-    // });
+    //     .then((product) => {
+    //         console.log(product);
+    //     });
 
     // Se hacen cambios en el producto y se muestran por log.
 

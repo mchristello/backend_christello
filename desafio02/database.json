@@ -1,1 +1,17 @@
-[]
+[{
+    "id": 1,
+    "title": "NOX AT10 18k",
+    "description": "La pala de Agustin Tapia",
+    "price": 95000,
+    "thumbnail": "No hay imagen",
+    "code": "CodigoPrueba",
+    "stock": 3
+}, {
+    "id": 1,
+    "title": "Bullpadel Vertex03",
+    "description": "La Pala de Juan Tello",
+    "price": 145000,
+    "thumbnail": "No Pic",
+    "code": "BULLVTX0323",
+    "stock": 4
+}]
