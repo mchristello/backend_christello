@@ -11,12 +11,26 @@ app.use(express.urlencoded({extended: true}));
 // Todos los productos
 app.get('/products', async (req, res) => {
     const db = await clase.getProducts(); 
-    if(req.query.limit){
-        const limit = Number(req.query.limit);
+    const limit = Number(req.query.limit);
+    if(limit){
         const reqLimit = db.slice(0, limit);
         res.send({reqLimit});
     } else {
         res.send({db});
+    }
+})
+
+// Productos por title
+app.get('/products/:title', async (req, res) => {
+    const db = await clase.getProducts();
+    const {title} = req.params;
+    const reqTitle = db.filter((product) => product.title === title);
+    console.log(reqTitle.length);
+    if(reqTitle.length > 0) {
+        const productByTitle = await clase.getProductBytitle(reqTitle)
+        res.send({productByTitle});
+    } else {
+        return res.send(`<h2 style="text-align:center; margin-top:10rem; color:red;"><u>The product you searched was not found in our Database</u></h2>`);
     }
 })
 

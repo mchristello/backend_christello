@@ -98,6 +98,32 @@ class ProductManager {
             return productSearch !== undefined ? productSearch : console.log(`The product you're looking for is not in the database`);
     };
 
+    getProductBytitle = async (title) => {
+        const databaseJson = await fs.promises.readFile(this.path, "utf-8");
+        const databaseObj = JSON.parse(databaseJson);
+        const productSearched = databaseObj.filter((product) => product.title.toLowerCase() === title);
+        return productSearched.length > 0 ? productSearched : console.log(`The brand you're looking for is not in the database`);
+    }
+
+    getProductByPrice = async (price) => {
+        const databaseJson = await fs.promises.readFile(this.path, "utf-8");
+        const databaseObj = JSON.parse(databaseJson);
+        const filteredPrice = databaseObj.filter((products) => products.price >= price);
+        return filteredPrice.length > 0 ? filteredPrice : console.log(`There is no product matching the price you're looking for`);
+    }
+
 }
 
 module.exports = { ProductManager };
+
+// const tester = new ProductManager();
+
+// tester.getProductBytitle('hEaD')
+//     .then((product) => {
+//         console.log(product);
+//     })
+
+// tester.getProductByPrice(170000)
+//     .then((product) => {
+//         console.log(product);
+//     })
