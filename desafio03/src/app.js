@@ -101,7 +101,7 @@ class ProductManager {
     getProductBytitle = async (title) => {
         const databaseJson = await fs.promises.readFile(this.path, "utf-8");
         const databaseObj = JSON.parse(databaseJson);
-        const productSearched = databaseObj.filter((product) => product.title.toLowerCase() === title);
+        const productSearched = databaseObj.filter((product) => product.title.toLowerCase() === title.toLowerCase());
         return productSearched.length > 0 ? productSearched : console.log(`The brand you're looking for is not in the database`);
     }
 
@@ -116,7 +116,7 @@ class ProductManager {
 
 module.exports = { ProductManager };
 
-// const tester = new ProductManager();
+const tester = new ProductManager();
 
 // tester.getProductBytitle('hEaD')
 //     .then((product) => {
