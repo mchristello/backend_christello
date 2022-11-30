@@ -108,7 +108,7 @@ class ProductManager {
     getProductByPrice = async (price) => {
         const databaseJson = await fs.promises.readFile(this.path, "utf-8");
         const databaseObj = JSON.parse(databaseJson);
-        const filteredPrice = databaseObj.filter((products) => products.price >= price);
+        const filteredPrice = databaseObj.filter((products) => products.price <= price);
         return filteredPrice.length > 0 ? filteredPrice : console.log(`There is no product matching the price you're looking for`);
     }
 

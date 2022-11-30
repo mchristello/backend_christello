@@ -20,7 +20,6 @@ app.get('/products', async (req, res) => {
     }
 })
 
-
 // Productos por ID
 app.get('/products/:pid', async (req, res) => {
     const db = await clase.getProducts();
@@ -31,6 +30,20 @@ app.get('/products/:pid', async (req, res) => {
     } else {
         const productById = await clase.getProductById(Number(pid));
         res.send({productById})
+    }
+})
+
+// Productos por title
+app.get('/products/:title', async (req, res) => {
+    const db = await clase.getProducts();
+    const { title } = req.params;
+    const reqTitle = db.filter((product) => product.title === title.toLowerCase());
+    console.log(reqTitle);
+    if(reqTitle.length > 0) {
+        const productByTitle = await clase.getProductByTitle(reqTitle)
+        res.send({productByTitle});
+    } else {
+        return res.send(`<h2 style="text-align:center; margin-top:10rem; color:red;"><u>The brand you searched was not found in our Database</u></h2>`);
     }
 })
 
