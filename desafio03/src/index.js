@@ -4,21 +4,23 @@ const manager = new ProductManager()
 
 
 const tester = async () => {
-    await manager.addProduct2({
-        title: 'Head Alpha Motion',
-        description: 'La pala de Ariana Sanchez',
-        price: 159000
-    });
+    // await manager.addProduct2({
+    //     title: 'Head Desta Motion',
+    //     description: 'La pala de Paula Josemaría',
+    //     price: 119000
+    // });
     
-    const toModify = {        
-        title: 'Bullpadel VertexCMF',
-        description: 'La pala de Martin Di Nenno',
-        price: 109000
-    }
+    // const toModify = {        
+    //     title: 'Bullpadel VertexCMF',
+    //     description: 'La pala de Martin Di Nenno',
+    //     price: 109000
+    // }
     
-    await manager.updateProduct(1, toModify)
+    // await manager.updateProduct(1, toModify)
 
-    console.log(await manager.getProducts());
+    console.log(await manager.getProductByTitle('head'));
+
+    // console.log(await manager.getProducts());
 }
 
 tester();
