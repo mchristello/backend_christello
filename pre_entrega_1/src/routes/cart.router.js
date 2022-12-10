@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ERRORS } from '../consts/errors.js';
+import { ERRORS } from '../consts/index.js';
 import { cartManager } from '../Managers/index.js';
 
 
@@ -66,6 +66,10 @@ router.post('/:cid/products/:pid', async (req, res) => {
         console.log(error);
 
         if (error.name === ERRORS.NOT_FOUND_ERROR) {
+            return res.send({ Success: false, error: `${error.name}: ${error.message}`})
+        }
+
+        if (error.name === ERRORS.NO_STOCK_ERROR) {
             return res.send({ Success: false, error: `${error.name}: ${error.message}`})
         }
 

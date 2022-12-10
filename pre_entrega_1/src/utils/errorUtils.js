@@ -23,4 +23,11 @@ export class MissingInputsError extends Error {
     }
 }
 
+export class NoStockError extends Error {
+    constructor (message) {
+        super(message);
+        this.name = ERRORS.NO_STOCK;
+    }
+}
+
 

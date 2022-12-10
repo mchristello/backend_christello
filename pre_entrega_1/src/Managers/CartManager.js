@@ -1,7 +1,7 @@
 import { info } from 'console';
 import fs from 'fs';
 import { productManager } from '../Managers/index.js';
-import { NotFoundError } from '../utils/errorUtils.js';
+import { NoStockError, NotFoundError } from '../utils/errorUtils.js';
 
 
 export class CartManager {
@@ -75,15 +75,18 @@ export class CartManager {
         console.log(`This is searchDuplicate from addProductToCart:`, searchDuplicate);
 
         if(searchDuplicate !== undefined) {
-            searchDuplicate.quantity++;
-            chosenProduct.stock--;
-
-            // Agregar updateProduct para impactar cambio en stock
-
-            
-            await this.#write(allCarts)
-
-            return searchedCart;
+            if(chosenProduct.stock > 0){
+                searchDuplicate.quantity++;
+                chosenProduct.stock--;
+    
+                // Agregar updateProduct para impactar cambio en stock
+                productManager.updateProduct(chosenProduct);
+                
+                await this.#write(allCarts)
+    
+                return searchedCart;
+            }
+            throw new NoStockError(`We have no stock left of the product you wanted.`)
         }
 
         // Agregamos el producto al carrito, solo id y cantidad
@@ -93,10 +96,7 @@ export class CartManager {
         })
 
         chosenProduct.stock--;
-        console.log(`This is chosenProduct before de stock changes:`, chosenProduct);
-        console.log(`This is searchedCart before the push:`, searchedCart);
-
-        // allCarts.push(searchedCart)
+        productManager.updateProduct(chosenProduct);
 
         await this.#write(allCarts)
 

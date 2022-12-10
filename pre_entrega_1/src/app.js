@@ -15,8 +15,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/static', express.static('./public'))
 
 app.use('/api/products/', productRouter);
-// app.use('/api/products/:pid', productRouter)
-// app.use('/api/products/title/:title', productRouter)
-
 
 app.use('/api/carts', cartRouter)
