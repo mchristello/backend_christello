@@ -1,0 +1,17 @@
+{{#if isLogged}}
+    <div class="container">
+        Using WebSocket
+        <h1>Hello {{user.name}}, Wellcome to the Store.</h1>
+    </div>
+
+
+    <section id="card__container" class="cards">
+        {{!-- Acá deben generarse las cards de los productos --}}
+    </section>
+    {{else}}
+    <h1>You have to be logged to view our products.</h1>
+
+{{/if}}
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

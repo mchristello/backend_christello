@@ -1,4 +1,3 @@
-import { info } from 'console';
 import fs from 'fs';
 import { productManager } from '../Managers/index.js';
 import { NoStockError, NotFoundError } from '../utils/errorUtils.js';

@@ -1,0 +1,23 @@
+<div>
+
+    <h1>Hello {{user.name}}, Wellcome to the Store.</h1>
+    
+    <section class="cards">
+    {{#if isLogged}}
+        {{#each products}}
+            <div class="card__item">
+                <hr>
+                <p>{{this.title}}</p>
+                <p><b>{{this.description}}</b></p>
+                <p>Price: <i>${{this.price}}</i></p>
+                <p>Stock Available: {{this.stock}}</p>
+                <hr>
+            </div>
+        {{/each}}
+    </section>
+
+    {{else}}
+    <h2>You need to be logged to view our products</h2>
+    {{/if}}
+
+</div>

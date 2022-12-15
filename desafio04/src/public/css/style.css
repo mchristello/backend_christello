@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: azure;
+}
+
+.navbar__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    font-size: 1.6rem;
+}
+
+li {
+    margin: 1rem 10rem;
+}
+
+.container {
+    text-align: center;
+    margin: 8rem auto;
+}
+
+.title {
+    font-size: 4rem;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 5rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.card__item {
+    margin: 2rem 3rem;
+    padding: 2rem 3rem;
+    border: 2px solid deeppink;
+}
+
+p {
+    font-size: 1.2rem;
+    text-align: center;
+}
