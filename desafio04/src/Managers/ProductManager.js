@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { NoStockError, NotFoundError } from '../utils/errorUtils.js';
+import { MissingInputsError, NoStockError, NotFoundError, ValidationError } from '../utils/errorUtils.js';
 
 
 export class ProductManager {
@@ -26,13 +26,14 @@ export class ProductManager {
         return database;
     }
     
-    addProduct = async ({ title, description, category, price, code, stock }) => {
+    addProduct = async ({ title, description, thumbnail, category, price, code, stock }) => {
         const id = await this.getNextID();
 
         const newProduct = {
             id: id, 
             title: title,
             description: description,
+            thumbnail: thumbnail,
             category: category,
             price: price,
             code: code,
@@ -88,7 +89,7 @@ export class ProductManager {
         const database = await this.getProducts();
         const count = database.length;
 
-        return (count > 0) ? database[count-1].id +1 : 1 
+        return (count > 0) ? count +1 : 1 
     }
 
     inputsCheck = async ({title, description, price, thumbnail, code, stock}) => {

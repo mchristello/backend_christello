@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
@@ -26,10 +29,40 @@ li {
 }
 
 .title {
-    font-size: 4rem;
+    font-size: 3rem;
     text-align: center;
     text-decoration: underline;
-    margin-bottom: 5rem;
+    margin: 4rem auto;
+}
+
+#btn_new-product {
+    font-size: 1rem;
+    margin: 2rem 0 0 2rem;
+    padding: 1rem;
+    background-color: lightskyblue;
+    border-radius: 20px;
+}
+
+.new_product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+    margin: 5rem auto;
+    border: outset 3px deeppink
+}
+
+input {
+    accent-color: red;
+    height: 30px;
+    margin: 1rem;
+}
+
+.send-btn {
+    height: 30px;
+    margin: 0 2rem 1rem 2rem;
+    background-color: rgb(70, 196, 70);
+    border-radius: 50px;
 }
 
 .cards {
@@ -37,17 +70,39 @@ li {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .card__item {
-    margin: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1rem;
     padding: 2rem 3rem;
-    border: 2px solid deeppink;
+    border: 2px solid rgb(76, 173, 68);
+}
+
+.card__item-socket {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1rem;
+    border: 2px solid rgb(202, 45, 33);
+    width: 15rem;
+    height: 17rem;
+}
+
+.card__img {
+    width: 90%;
+    padding: .5rem 3rem;
+    margin: 0 1rem auto;
+}
+
+.card__body {
+    width: 100%;
+    margin-top: 1rem;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
 }

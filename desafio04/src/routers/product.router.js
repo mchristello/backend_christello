@@ -48,17 +48,19 @@ router.get('/:pid', async (req, res) => {
 })
 
 // POST 
+// Crear producto
 router.post('/', async (req, res) => {
     try {
-        const { title, description, category, price, code, stock } = req.body;
+        const { title, description, category, price, code, stock, thumbnail } = req.body;
 
         const newProduct = {
             title: title,
             description: description,
             category: category,
-            price: price,
+            price: Number(price),
             code: code,
-            stock: stock
+            stock: Number(stock),
+            thumbnail: thumbnail
         }
 
         await productManager.addProduct({ ...newProduct });

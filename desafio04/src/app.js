@@ -5,6 +5,7 @@ import productRouter from './routers/product.router.js';
 import cartRouter from './routers/cart.router.js';
 import viewsRouter from './routers/views.router.js';
 import { Server } from 'socket.io';
+import { productManager } from './Managers/index.js';
 
 
 const app = express();
@@ -45,14 +46,21 @@ app.use('/api/carts', cartRouter);
 app.use('/', viewsRouter);
 
 
-io.sockets.on('connection', (socket) => {
-    console.log(`New client connected`, socket.id);
+io.on('connection', async(socket) => {
+    console.log(`New client connected,  ID:`, socket.id);
 
     socket.on('message', data => {
         console.log(`From Client:`, data);
     })
 
-    socket.on('getProducts', data => {
-        console.log(data);
+    socket.emit('message', `Esto viene desde app.js`)
+
+    const products = await productManager.getProducts();
+
+    socket.emit('getProducts', products); // Productos van hacía index.js - socket.on
+
+
+    socket.on('newProduct', async (product) => {
+        console.log(`From newProduct:`, product); // Productos vienen DESDE el front
     })
 })

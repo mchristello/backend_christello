@@ -1,17 +1,22 @@
+    <button id="btn_new-product">Create New Product</button>
+    <section id="new_product">
+        {{!-- Aca va el fomuralio para cargar un producto nuevo --}}
+    </section>
 {{#if isLogged}}
-    <div class="container">
-        Using WebSocket
-        <h1>Hello {{user.name}}, Wellcome to the Store.</h1>
-    </div>
-
+    <h1 class="title">Hello {{user.name}}, wellcome to our <i style="color: red;">realTimeProducts</i> store!</h1>
 
     <section id="card__container" class="cards">
-        {{!-- Acá deben generarse las cards de los productos --}}
+        <hr>
+
+        <hr>
     </section>
+
     {{else}}
-    <h1>You have to be logged to view our products.</h1>
+
+    <h1 class="title"> You have to be logged to view our products.</h1>
 
 {{/if}}
+
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/index.js"></script>
