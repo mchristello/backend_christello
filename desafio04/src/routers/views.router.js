@@ -83,6 +83,8 @@ router.post("/realtimeproducts", async (req, res) => {
     }
 });
 
+// DELETE
+// Para eliminar productos
 router.delete("/realtimeproducts/:pid", async (req, res) => {
     try {
         

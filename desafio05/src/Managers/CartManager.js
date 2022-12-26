@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { NoStockError, NotFoundError } from '../utils/errorUtils.js';
+import { NoStockError, NotFoundError } from '../utils/error.utils.js';
 import { productManager } from './index.js';
 
 

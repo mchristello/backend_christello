@@ -71,12 +71,10 @@ let cardContainer = document.getElementById('card__container');
 
         // Guardamos los datos del formulario
         const formData = new FormData(form);
-
         const newProduct = {};
-
         for(const inputField in formData.entries()){
             newProduct[inputField[0]] = field[1];
         }
-
+        // Se envía el nuevo producto al back para guardarlo en la base de datos y actualizar el listo de productos que se muestran.
         socket.emit('addProduct', newProduct);
     })

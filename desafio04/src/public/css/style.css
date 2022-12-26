@@ -41,6 +41,7 @@ li {
     padding: 1rem;
     background-color: lightskyblue;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .new_product-form {
@@ -55,14 +56,17 @@ li {
 input {
     accent-color: red;
     height: 30px;
-    margin: 1rem;
+    margin: 1rem auto;
+    width: 70%;
 }
 
 .send-btn {
     height: 30px;
-    margin: 0 2rem 1rem 2rem;
+    margin: 1rem auto;
     background-color: rgb(70, 196, 70);
     border-radius: 50px;
+    width: 50%;
+    cursor: pointer;
 }
 
 .cards {
@@ -70,7 +74,7 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
 }
 
